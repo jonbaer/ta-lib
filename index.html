@@ -69,6 +69,15 @@ on your computer (you can <a href="http://ta-lib.org/hdr_dw.html">download it</a
 use your computers package manager to install it, e.g.,
 <code>brew install ta-lib</code> on Mac OS X).</p>
 
+<h2>Troubleshooting</h2>
+
+<p>If you get build errors like this, it typically means that it can't find the
+underlying <code>ta-lib</code> library and needs to be installed:</p>
+
+<pre><code>func.c:256:28: fatal error: ta-lib/ta_libc.h: No such file or directory
+compilation terminated.
+</code></pre>
+
 <h2>Examples</h2>
 
 <p>Similar to TA-Lib, the functions return an index into the input where the
@@ -77,38 +86,26 @@ specifed as keyword arguments.</p>
 
 <p>All of the following examples will use these definitions:</p>
 
-<div class="highlight">
-<pre><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">talib</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>Calculate a simple moving average:</p>
 
-<div class="highlight">
-<pre><span class="n">output</span> <span class="o">=</span> <span class="n">talib</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="n">output</span> <span class="o">=</span> <span class="n">talib</span><span class="o">.</span><span class="n">SMA</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
 
 <p>Calculating bollinger bands, with triple exponential moving average:</p>
 
-<div class="highlight">
-<pre><span class="n">upper</span><span class="p">,</span> <span class="n">middle</span><span class="p">,</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">talib</span><span class="o">.</span><span class="n">BBANDS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">matype</span><span class="o">=</span><span class="n">talib</span><span class="o">.</span><span class="n">MA_T3</span><span class="p">)</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="n">upper</span><span class="p">,</span> <span class="n">middle</span><span class="p">,</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">talib</span><span class="o">.</span><span class="n">BBANDS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">matype</span><span class="o">=</span><span class="n">talib</span><span class="o">.</span><span class="n">MA_T3</span><span class="p">)</span>
+</pre></div>
 
 <p>Calculating momentum, with a time period of 5:</p>
 
-<div class="highlight">
-<pre><span class="n">output</span> <span class="o">=</span> <span class="n">talib</span><span class="o">.</span><span class="n">MOM</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">timeperiod</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="n">output</span> <span class="o">=</span> <span class="n">talib</span><span class="o">.</span><span class="n">MOM</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">timeperiod</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
 
 <h2>Indicators</h2>
 
